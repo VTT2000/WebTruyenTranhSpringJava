@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd        
+		http://www.springframework.org/schema/mvc        
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd        
+		http://www.springframework.org/schema/context        
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<context:component-scan
+		base-package="vn.holotruyentranh.controller" />
+
+
+	<context:annotation-config />
+	<mvc:annotation-driven />
+
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		p:prefix="/WEB-INF/views/" p:suffix=".jsp" />
+	<!-- mvc:resources mapping="templates/**" location="/,classpath://WEB-INF/templates" 
+		cache-period="1000"></mvc:resources> -->
+
+	<bean id="ds"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver"></property>
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/webtruyentranh"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value=""></property>
+	</bean>
+
+	<bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="ds"></property>
+	</bean>
+	 
+	<bean id="dao1" class="vn.holotruyentranh.dao.CatergoryDao">
+		<property name="template" ref="jt"></property>
+	</bean>
+	<bean id="dao2" class="vn.holotruyentranh.dao.AuthorDao">
+		<property name="template" ref="jt"></property>
+	</bean>
+	<bean id="dao3" class="vn.holotruyentranh.dao.ChapterDao">
+		<property name="template" ref="jt"></property>
+	</bean>
+	<bean id="dao4" class="vn.holotruyentranh.dao.ComicCatergoryDao">
+		<property name="template" ref="jt"></property>
+	</bean>
+	<bean id="dao5" class="vn.holotruyentranh.dao.ComicDao">
+		<property name="template" ref="jt"></property>
+	</bean>
+	<bean id="dao6" class="vn.holotruyentranh.dao.ComicTransDao">
+		<property name="template" ref="jt"></property>
+	</bean>
+	<bean id="dao7" class="vn.holotruyentranh.dao.ImageChapterDao">
+		<property name="template" ref="jt"></property>
+	</bean>
+	<bean id="dao8" class="vn.holotruyentranh.dao.PermissionDao">
+		<property name="template" ref="jt"></property>
+	</bean>
+	<bean id="dao9" class="vn.holotruyentranh.dao.TransPermissionDao">
+		<property name="template" ref="jt"></property>
+	</bean>
+	<bean id="dao10" class="vn.holotruyentranh.dao.TransTeamDao">
+		<property name="template" ref="jt"></property>
+	</bean>
+	<bean id="dao11" class="vn.holotruyentranh.dao.UserDao">
+		<property name="template" ref="jt"></property>
+	</bean>
+	
+</beans>
