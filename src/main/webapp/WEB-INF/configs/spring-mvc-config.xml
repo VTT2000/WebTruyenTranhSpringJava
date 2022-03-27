@@ -24,8 +24,7 @@
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		p:prefix="/WEB-INF/views/" p:suffix=".jsp" />
-	<!-- mvc:resources mapping="templates/**" location="/,classpath://WEB-INF/templates" 
-		cache-period="1000"></mvc:resources> -->
+	<mvc:resources mapping="/assets/**" location="/assets/" ></mvc:resources>
 
 	<bean id="ds"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
