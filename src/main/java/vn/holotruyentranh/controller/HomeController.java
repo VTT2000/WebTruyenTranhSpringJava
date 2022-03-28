@@ -33,10 +33,10 @@ public class HomeController {
 				String ngay2 = o2.getUpdated();
 				Date ngay10 = new Date(Integer.parseInt(ngay1.substring(0, 4)), Integer.parseInt(ngay1.substring(5,7)), Integer.parseInt(ngay1.substring(8,10)));
 				Date ngay20 = new Date(Integer.parseInt(ngay2.substring(0, 4)), Integer.parseInt(ngay2.substring(5,7)), Integer.parseInt(ngay2.substring(8,10)));
-				return ngay10.compareTo(ngay20);
+				return ngay20.compareTo(ngay10);
 			}
 		});
-		model.addAttribute("listComics", listComics);
+		model.addAttribute("listComics", listComics.subList(0, 8));
 		return "home/home";
 	}
 }

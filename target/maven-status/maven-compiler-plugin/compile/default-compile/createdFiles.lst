@@ -39,6 +39,7 @@ vn\holotruyentranh\dao\TransTeamDao.class
 vn\holotruyentranh\dao\ChapterDao.class
 vn\holotruyentranh\dao\PermissionDao.class
 vn\holotruyentranh\beans\ComicCatergory.class
+vn\holotruyentranh\controller\ComicController.class
 vn\holotruyentranh\beans\ComicTrans.class
 vn\holotruyentranh\dao\PermissionDao$2.class
 vn\holotruyentranh\beans\Chapter.class
