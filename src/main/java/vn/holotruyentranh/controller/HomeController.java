@@ -1,14 +1,19 @@
 package vn.holotruyentranh.controller;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;    
 import org.springframework.stereotype.Controller;  
 import org.springframework.ui.Model;     
-import org.springframework.web.bind.annotation.RequestMapping;    
+import org.springframework.web.bind.annotation.RequestMapping;
 
 
-import vn.holotruyentranh.dao.CatergoryDao;
+import vn.holotruyentranh.beans.Comic;
 import vn.holotruyentranh.dao.ComicDao;    
 
 
@@ -16,20 +21,23 @@ import vn.holotruyentranh.dao.ComicDao;
 @RequestMapping("/home/")
 public class HomeController {
 	@Autowired
-	private CatergoryDao catergoryDao;
-	@Autowired
 	private ComicDao comicDao;
 	@RequestMapping("index")
 	public String Index(Model model, HttpServletRequest request) {
-		String message = "<h1>Hello World</h1>";
-		model.addAttribute("message", message);
-		model.addAttribute("go", catergoryDao.findAll().get(0).getCreated_at());
-		model.addAttribute("go0", catergoryDao.findAll().get(0).getUpdate_at());
-		model.addAttribute("cate", catergoryDao.findAll().get(0).getCatergory());
-		model.addAttribute("cate0", catergoryDao.findAll().get(0).getDescription());
-		model.addAttribute("listCatergory", catergoryDao.findAll());
-		model.addAttribute("listComic", comicDao.findAll());
-		return "home/index";
+		List<Comic> listComics = comicDao.findAll();
+		Collections.sort(listComics, new Comparator<Comic>() {
+			@Override
+			public int compare(Comic o1, Comic o2) {
+				// TODO Auto-generated method stub
+				String ngay1 = o1.getUpdated();
+				String ngay2 = o2.getUpdated();
+				Date ngay10 = new Date(Integer.parseInt(ngay1.substring(0, 4)), Integer.parseInt(ngay1.substring(5,7)), Integer.parseInt(ngay1.substring(8,10)));
+				Date ngay20 = new Date(Integer.parseInt(ngay2.substring(0, 4)), Integer.parseInt(ngay2.substring(5,7)), Integer.parseInt(ngay2.substring(8,10)));
+				return ngay10.compareTo(ngay20);
+			}
+		});
+		model.addAttribute("listComics", listComics);
+		return "home/home";
 	}
 }
  
