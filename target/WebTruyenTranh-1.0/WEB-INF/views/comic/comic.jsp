@@ -51,10 +51,10 @@
 											<label style="margin-left: 10px;">Thể loại:</label> <span>
 												<c:if test="${ not empty catergorys }">
 													<c:forEach var="item" items="${ catergorys }">
-														<a href="${ item.getIDcatergory() }">${ item.getCatergory },</a>
+														<a href="${ item.getIDcatergory() }">${ item.getCatergory() },</a>
 													</c:forEach>
-												</c:if> 
-												
+												</c:if>
+
 											</span>
 										</div>
 										<button type="submit" class="btn btn-primary"
@@ -66,7 +66,7 @@
 						</div>
 						<div class="item-decription">
 							<h2>Mô tả</h2>
-							<p>truyện hay</p>
+							<p>${ comic.getDescription() }</p>
 						</div>
 
 					</div>
@@ -80,21 +80,14 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td><a href="#"> chap 1</a></td>
-									<td style="float: right;">10/7</td>
-
-								</tr>
-								<tr>
-									<td><a href="#"> chap 1</a></td>
-									<td style="float: right;">10/7</td>
-
-								</tr>
-								<tr>
-									<td><a href="#"> chap 1</a></td>
-									<td style="float: right;">10/7</td>
-
-								</tr>
+								<c:if test="${ not empty chapters }">
+									<c:forEach var="item" items="${ chapters }">
+										<tr>
+											<td><a href="#"> ${ item.getChapter() }</a></td>
+											<td style="float: right;">${ item.getCreated() }</td>
+										</tr>
+									</c:forEach>
+								</c:if>
 							</tbody>
 						</table>
 					</div>
