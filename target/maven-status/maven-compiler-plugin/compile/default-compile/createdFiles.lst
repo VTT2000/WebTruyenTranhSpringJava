@@ -2,10 +2,12 @@ vn\holotruyentranh\dao\ChapterDao$1.class
 vn\holotruyentranh\dao\CatergoryDao$1.class
 vn\holotruyentranh\dao\ComicDao$2.class
 vn\holotruyentranh\controller\HomeController$1.class
+vn\holotruyentranh\object\DangNhap.class
 vn\holotruyentranh\dao\UserDao$2.class
 vn\holotruyentranh\beans\Permission.class
 vn\holotruyentranh\dao\ComicCatergoryDao$2.class
 vn\holotruyentranh\dao\ImageChapterDao$2.class
+vn\holotruyentranh\object\DangKy.class
 vn\holotruyentranh\dao\ComicDao.class
 vn\holotruyentranh\dao\ComicTransDao$3.class
 vn\holotruyentranh\dao\ComicTransDao$1.class
@@ -24,6 +26,7 @@ vn\holotruyentranh\dao\UserDao.class
 vn\holotruyentranh\dao\AuthorDao$2.class
 vn\holotruyentranh\dao\ComicTransDao.class
 vn\holotruyentranh\dao\TransPermissionDao.class
+vn\holotruyentranh\controller\DangKyController.class
 vn\holotruyentranh\dao\ImageChapterDao$1.class
 vn\holotruyentranh\dao\TransTeamDao$2.class
 vn\holotruyentranh\dao\ComicCatergoryDao$1.class
@@ -39,6 +42,8 @@ vn\holotruyentranh\dao\TransTeamDao.class
 vn\holotruyentranh\dao\ChapterDao.class
 vn\holotruyentranh\dao\PermissionDao.class
 vn\holotruyentranh\beans\ComicCatergory.class
+vn\holotruyentranh\controller\ComicController.class
+vn\holotruyentranh\controller\DangNhapController.class
 vn\holotruyentranh\beans\ComicTrans.class
 vn\holotruyentranh\dao\PermissionDao$2.class
 vn\holotruyentranh\beans\Chapter.class
