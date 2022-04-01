@@ -190,8 +190,6 @@
                                                                 },
                                                                 body: JSON.stringify(khachHang)
                                                             };
-                                                            
-                                                            alert(khachHang.Email);
 
                                                             fetch(urlDangKy, options)
                                                                 .then(response => response.text())
