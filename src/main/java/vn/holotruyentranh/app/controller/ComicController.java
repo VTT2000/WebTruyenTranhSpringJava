@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;    
 import org.springframework.stereotype.Controller;  
-import org.springframework.ui.Model;     
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -17,12 +19,14 @@ import vn.holotruyentranh.app.bean.Chapter;
 import vn.holotruyentranh.app.bean.Comic;
 import vn.holotruyentranh.app.bean.ComicCatergory;
 import vn.holotruyentranh.app.bean.ImageChapter;
+import vn.holotruyentranh.app.bean.TheoDoi;
 import vn.holotruyentranh.app.service.AuthorService;
 import vn.holotruyentranh.app.service.CatergoryService;
 import vn.holotruyentranh.app.service.ChapterService;
 import vn.holotruyentranh.app.service.ComicCatergoryService;
 import vn.holotruyentranh.app.service.ComicService;
-import vn.holotruyentranh.app.service.ImageChapterService;    
+import vn.holotruyentranh.app.service.ImageChapterService;
+import vn.holotruyentranh.app.service.TheoDoiService;    
 
 @Controller
 @RequestMapping("/Comic/")
@@ -39,8 +43,10 @@ public class ComicController {
 	private ChapterService chapterDao;
 	@Autowired
 	private ImageChapterService imageChapterService;
+	@Autowired
+	private TheoDoiService theoDoiService;
 	@RequestMapping(value = "Index", method = RequestMethod.GET)
-	public String Index(Model model, HttpServletRequest request) {
+	public String Index(Model model, HttpServletRequest request, HttpSession session) {
 		Long id = Long.parseLong(request.getParameter("IDcomic"));
 		Comic comic = comicDao.get(id);
 		
@@ -61,10 +67,38 @@ public class ComicController {
 			}
 		}
 		
+		String Follow = "Lưu";
+		Long IDcomic = Long.parseLong(request.getParameter("IDcomic"));
+		Long IDuser = (Long)session.getAttribute("KhachHangIdKH");
+		List<TheoDoi> list = theoDoiService.listAll();
+		for (TheoDoi theoDoi : list) {
+			if(theoDoi.getIDcomic() == IDcomic && theoDoi.getIDuser() == IDuser) {
+				Follow = "Bỏ Lưu";
+			}
+		}
+		model.addAttribute("theodoi", Follow);
 		model.addAttribute("chapters", chapters);
 		model.addAttribute("author", author);
 		model.addAttribute("catergorys", catergorys);
 		model.addAttribute("comic", comic);
+		
+		// luu lich su
+		List<Comic> historyComics = new ArrayList<Comic>();
+		if(session.getAttribute("history"+session.getAttribute("KhachHangIdKH")) == null) {
+			historyComics.add(comic);
+			session.setAttribute("history"+session.getAttribute("KhachHangIdKH"), historyComics);
+		}
+		else {
+			historyComics = (List<Comic>) session.getAttribute("history"+session.getAttribute("KhachHangIdKH"));
+			for (Comic comic2 : historyComics) {
+				if(comic2.getIDcomic() == id) {
+					return "comic/comic";
+				}
+			}
+			historyComics.add(comic);
+			session.setAttribute("history"+session.getAttribute("KhachHangIdKH"), historyComics);
+		}
+		
 		return "comic/comic";
 	}
 	
@@ -124,5 +158,25 @@ public class ComicController {
 		System.out.print("catergoryID: "+IDcatergory);
 		return "comic/allcomic";
 	}
+	
+	@RequestMapping(value = "TheoDoi", method = RequestMethod.GET)
+	public String TheoDoiComic(Model model, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+		Long IDcomic = Long.parseLong(request.getParameter("IDcomic"));
+		Long IDuser = (Long)session.getAttribute("KhachHangIdKH");
+		List<TheoDoi> list = theoDoiService.listAll();
+		for (TheoDoi theoDoi : list) {
+			if(theoDoi.getIDcomic() == IDcomic && theoDoi.getIDuser() == IDuser) {
+				theoDoiService.delete(theoDoi.getId());
+				return "redirect:/Comic/Index?IDcomic="+IDcomic;
+			}
+		}
+		TheoDoi temp = new TheoDoi();
+		temp.setIDcomic(IDcomic);
+		temp.setIDuser(IDuser);
+		theoDoiService.save(temp);
+		return "redirect:/Comic/Index?IDcomic="+IDcomic;
+	}
+	
+	
 }
  

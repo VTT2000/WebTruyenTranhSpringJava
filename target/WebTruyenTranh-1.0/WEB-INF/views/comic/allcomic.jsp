@@ -63,21 +63,21 @@
 
 							<c:if test="${ not empty comics }">
 								<c:forEach var="item" items="${ comics }">
-
-									<div class="col-md-4 col-xs-3">
-										<div class="card card-member">
-											<div class="content">
-												<div class="avatar avatar-danger">
-													<img alt="${ item.getCatergory() }" class=""
-														src="${ item.getImageLink() }" />
-												</div>
-												<div class="description">
-													<h3 class="title">${ item.getCatergory() }</h3>
+									<a href="../Comic/Index?IDcomic=${ item.IDcomic }">
+										<div class="col-md-4 col-xs-3">
+											<div class="card card-member">
+												<div class="content">
+													<div class="avatar avatar-danger">
+														<img alt="${ item.getComic() }" class=""
+															src="${ item.getImageLink() }" />
+													</div>
+													<div class="description">
+														<h3 class="title">${ item.getComic() }</h3>
+													</div>
 												</div>
 											</div>
 										</div>
-									</div>
-
+									</a>
 								</c:forEach>
 							</c:if>
 

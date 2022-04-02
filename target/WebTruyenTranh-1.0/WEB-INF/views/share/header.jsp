@@ -25,7 +25,20 @@
 					</div>
 					<button type="submit" class="btn btn-default">tìm kiếm</button>
 				</form>
-				<li><a id="modal_trigger" href="#modal" onclick="refreshNewError();">Đăng nhập/Đăng ký</a></li>
+
+				<c:choose>
+					<c:when
+						test="${ not empty KhachHangIdKH }">
+						<li><a id="modal_trigger" href="../User/Info"
+								onclick="refreshNewError();">Chào, ${ KhachHangName }</a></li>
+					</c:when>
+					<c:otherwise>
+						<li><a id="modal_trigger" href="#modal"
+								onclick="refreshNewError();">Đăng nhập/Đăng ký</a></li>
+					</c:otherwise>
+				</c:choose>
+
+				
 
 			</ul>
 
@@ -65,9 +78,8 @@
 		</div>
 		<div class="user_login">
 			<form>
-				<label>Email</label> <input id="emailDangNhap"
-					type="text"><br> <label>Password</label> <input
-					id="passDangNhap" type="password"><br>
+				<label>Email</label> <input id="emailDangNhap" type="text"><br>
+				<label>Password</label> <input id="passDangNhap" type="password"><br>
 				<p id="showErrorDangNhap" style="color: red"></p>
 
 				<div class="checkbox">
@@ -142,10 +154,10 @@
 		</div>
 		<div class="user_register">
 			<form>
-				<label>Full Name</label> <input id="tenDangKy" type="text"><br> <label>Email
-					Address</label> <input id="emailDangKy" type="email"><br> <label>Password</label>
-				<input id="passDangKy" type="password"><br>
-				<p id="showErrorDangKy" style="color:red"></p>
+				<label>Full Name</label> <input id="tenDangKy" type="text"><br>
+				<label>Email Address</label> <input id="emailDangKy" type="email"><br>
+				<label>Password</label> <input id="passDangKy" type="password"><br>
+				<p id="showErrorDangKy" style="color: red"></p>
 
 				<div class="checkbox">
 					<input id="send_updates" type="checkbox"> <label
@@ -158,7 +170,7 @@
 					</div>
 
 					<div class="one_half last">
-						<a type="button" class="btn btn_red" onclick="Register();" >Register</a>
+						<a type="button" class="btn btn_red" onclick="Register();">Register</a>
 					</div>
 
 					<script type="text/javascript">

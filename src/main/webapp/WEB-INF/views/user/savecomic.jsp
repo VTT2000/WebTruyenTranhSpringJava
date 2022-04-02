@@ -9,13 +9,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>web</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <link href="assets/css/gaia.css" rel="stylesheet" />
+    <link href="../assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="../assets/css/gaia.css" rel="stylesheet" />
 
     <!--     Fonts and icons     -->
     <link href='https://fonts.googleapis.com/css?family=Cambo|Poppins:400,600' rel='stylesheet' type='text/css'>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link href="assets/css/fonts/pe-icon-7-stroke.css" rel="stylesheet">
+    <link href="../assets/css/fonts/pe-icon-7-stroke.css" rel="stylesheet">
 </head>
 
 <body>  
@@ -27,18 +27,10 @@
                 <div class="col-md-4 col-xs-4">
                     <nav class="nav-sidebar">
                         <ul class="nav">
-                            <li>
-                                <a href="#">Thông tin</a>
-                            </li>
-                            <li class="active">
-                                <a href="#">Lịch Sử xem truyện</a>
-                            </li>
-                            <li >
-                                <a href="#">lưu truyện</a>
-                            </li>
-                            <li>
-                                <a href="#">Dăng Xuất</a>
-                            </li>
+                            <li><a href="../User/Info">Thông tin</a></li>
+							<li><a href="../User/ComicHistory">Lịch sử xem truyện</a></li>
+							<li class="active"><a href="../User/TheoDoi">Lưu truyện</a></li>
+							<li><a href="../User/LogOut">Đăng Xuất</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -49,45 +41,33 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Mã</th>
-                                    <th>Tên hàng</th>
-                                    <th>Ngày nhận</th>
-                                    <th>Tiền</th>
-                                    <th>CTDH</th>
+                                    <th>Mã truyện</th>
+                                    <th>Tên truyện</th>
+                                    <th>Trạng thái</th>
+                                    <th>Mô tả</th>
+                                    <th>Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Trà sữa</td>
-                                    <td>10/7</td>
-                                    <td>15.000đ</td>
+                                <c:if test="${ not empty comics }">
+								<c:forEach var="item" items="${ comics }">
+								<tr>
+                                    <td>${ item.IDcomic }</td>
                                     <td>
-                                         <button type="" class="btn btn-default"> bỏ Lưu</button>
+                                    <a href="../Comic/Index?IDcomic=${ item.IDcomic }">
+                                    	${ item.comic }
+                                    </a>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Trà sữa</td>
-                                    <td>10/7</td>
-                                    <td>15.000đ</td>
+                                    <td>${ item.status }</td>
+                                    <td>${ item.description }</td>
+                                    
                                     <td>
-                                         <button type="" class="btn btn-default"> bỏ Lưu</button>
-
-
+                                         <button onclick="location.href='../User/BoTheoDoi?IDcomic=${ item.getIDcomic() }';" type="" class="btn btn-default"> Bỏ lưu</button>
                                     </td>
-         
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Trà sữa</td>
-                                    <td>10/7</td>
-                                    <td>15.000đ</td>
-                                    <td>
-                                        <button type="" class="btn btn-default"> bỏ Lưu</button>
-
-                                    </td>        
-                                </tr>
+                                    
+                                </tr>	
+								</c:forEach>
+							</c:if>   
                             </tbody>
                         </table>
                     </div>
@@ -99,18 +79,18 @@
 </body>
 
 <!--   core js files    -->
-<script src="assets/js/jquery.min.js" type="text/javascript"></script>
-<script src="assets/js/jquery.leanModal.min.js" type="text/javascript"></script>
-<script src="assets/js/bootstrap.js" type="text/javascript"></script>
+<script src="../assets/js/jquery.min.js" type="text/javascript"></script>
+<script src="../assets/js/jquery.leanModal.min.js" type="text/javascript"></script>
+<script src="../assets/js/bootstrap.js" type="text/javascript"></script>
 
 <!--  js library for devices recognition -->
-<script type="text/javascript" src="assets/js/modernizr.js"></script>
+<script type="text/javascript" src="../assets/js/modernizr.js"></script>
 
 <!--  script for google maps   -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
 <!--   file where we handle all the script from the Gaia - Bootstrap Template   -->
-<script type="text/javascript" src="assets/js/gaia.js"></script>
+<script type="text/javascript" src="../assets/js/gaia.js"></script>
 <script type="text/javascript">
 // Plugin options and our code
 $("#modal_trigger").leanModal({

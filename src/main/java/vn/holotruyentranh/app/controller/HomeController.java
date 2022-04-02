@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;    
 import org.springframework.stereotype.Controller;  
@@ -22,7 +23,7 @@ public class HomeController {
 	@Autowired
 	private ComicService comicDao;
 	@RequestMapping("index")
-	public String Index(Model model, HttpServletRequest request) {
+	public String Index(Model model, HttpServletRequest request, HttpSession session) {
 		List<Comic> listComics = comicDao.listAll();
 		Collections.sort(listComics, new Comparator<Comic>() {
 			@Override
@@ -36,6 +37,10 @@ public class HomeController {
 			}
 		});
 		model.addAttribute("listComics", listComics.subList(0, 8));
+		
+		
+		model.addAttribute("KhachHangIdKH", session.getAttribute("KhachHangIdKH"));
+		model.addAttribute("KhachHangName", session.getAttribute("KhachHangName"));
 		return "home/home";
 	}
 }

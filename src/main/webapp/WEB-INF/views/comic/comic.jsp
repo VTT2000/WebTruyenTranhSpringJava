@@ -57,8 +57,23 @@
 
 											</span>
 										</div>
-										<button type="submit" class="btn btn-primary"
-											style="background-color: red; color: black;">Lưu</button>
+
+
+										<c:choose>
+											<c:when test="${ not empty KhachHangIdKH }">
+												<button
+													onclick="location.href='../Comic/TheoDoi?IDcomic=${ comic.getIDcomic() }';"
+													type="submit" class="btn btn-primary"
+													style="background-color: red; color: black;">${ theodoi }</button>
+											</c:when>
+											<c:otherwise>
+												<button
+													onclick="alert('Đăng nhập để lưu truyện');"
+													type="submit" class="btn btn-primary"
+													style="background-color: red; color: black;">Lưu</button>
+											</c:otherwise>
+										</c:choose>
+
 									</div>
 								</div>
 							</div>
@@ -83,7 +98,9 @@
 								<c:if test="${ not empty chapters }">
 									<c:forEach var="item" items="${ chapters }">
 										<tr>
-											<td><a href="../Comic/Chapter?IDcomic=${ comic.getIDcomic() }&IDchapter=${ item.getIDchapter() }"> ${ item.getChapter() }</a></td>
+											<td><a
+												href="../Comic/Chapter?IDcomic=${ comic.getIDcomic() }&IDchapter=${ item.getIDchapter() }">
+													${ item.getChapter() }</a></td>
 											<td style="float: right;">${ item.getCreated() }</td>
 										</tr>
 									</c:forEach>

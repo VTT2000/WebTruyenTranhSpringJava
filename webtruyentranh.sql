@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 26, 2022 lúc 06:23 PM
+-- Thời gian đã tạo: Th4 02, 2022 lúc 08:27 PM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
 -- Phiên bản PHP: 8.0.15
 
@@ -57,7 +57,7 @@ INSERT INTO `author` (`IDauthor`, `author`, `created`, `updated`) VALUES
 CREATE TABLE `catergory` (
   `IDcatergory` int(11) NOT NULL,
   `catergory` varchar(50) NOT NULL,
-  `decriptions` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `update_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -66,7 +66,7 @@ CREATE TABLE `catergory` (
 -- Đang đổ dữ liệu cho bảng `catergory`
 --
 
-INSERT INTO `catergory` (`IDcatergory`, `catergory`, `decriptions`, `created_at`, `update_at`) VALUES
+INSERT INTO `catergory` (`IDcatergory`, `catergory`, `description`, `created_at`, `update_at`) VALUES
 (1, 'Adult', 'Thể loại đề cập vấn đề về giới tính nhạy cảm dành cho lứa tuổi trên 17 tuổi', '2022-03-08 22:29:16', '2022-03-23 22:32:41'),
 (2, 'Adventure', 'Thể loại phiêu lưu, mạo hiểm thường kể về hành trình của các nhân vật chính', NULL, NULL),
 (3, 'Anime', 'Các thể loại truyện đã được chuyển đổi thành phim hoạt hình', NULL, NULL),
@@ -215,6 +215,7 @@ INSERT INTO `comic` (`IDcomic`, `comic`, `created`, `updated`, `ratting`, `views
 --
 
 CREATE TABLE `comiccatergory` (
+  `id` int(11) NOT NULL,
   `IDcatergory` int(11) NOT NULL,
   `IDcomic` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -223,58 +224,58 @@ CREATE TABLE `comiccatergory` (
 -- Đang đổ dữ liệu cho bảng `comiccatergory`
 --
 
-INSERT INTO `comiccatergory` (`IDcatergory`, `IDcomic`) VALUES
-(2, 1),
-(2, 2),
-(2, 3),
-(2, 4),
-(2, 5),
-(2, 8),
-(2, 9),
-(3, 7),
-(4, 1),
-(4, 2),
-(4, 4),
-(4, 6),
-(4, 7),
-(4, 8),
-(4, 9),
-(6, 3),
-(6, 4),
-(6, 7),
-(7, 6),
-(7, 8),
-(7, 9),
-(8, 3),
-(8, 8),
-(8, 9),
-(16, 5),
-(23, 1),
-(24, 1),
-(25, 7),
-(25, 9),
-(27, 7),
-(28, 1),
-(29, 2),
-(29, 3),
-(31, 1),
-(31, 7),
-(35, 3),
-(35, 5),
-(35, 8),
-(36, 10),
-(37, 10),
-(38, 6),
-(38, 7),
-(38, 9),
-(38, 10),
-(39, 2),
-(39, 3),
-(39, 5),
-(39, 7),
-(39, 8),
-(39, 9),
-(39, 10);
+INSERT INTO `comiccatergory` (`id`, `IDcatergory`, `IDcomic`) VALUES
+(1, 2, 1),
+(2, 2, 2),
+(3, 2, 3),
+(4, 2, 4),
+(5, 2, 5),
+(6, 2, 8),
+(7, 2, 9),
+(8, 3, 7),
+(9, 4, 1),
+(10, 4, 2),
+(11, 4, 4),
+(12, 4, 6),
+(13, 4, 7),
+(14, 4, 8),
+(15, 4, 9),
+(16, 6, 3),
+(17, 6, 4),
+(18, 6, 7),
+(19, 7, 6),
+(20, 7, 8),
+(21, 7, 9),
+(22, 8, 3),
+(23, 8, 8),
+(24, 8, 9),
+(25, 16, 5),
+(26, 23, 1),
+(27, 24, 1),
+(28, 25, 7),
+(29, 25, 9),
+(30, 27, 7),
+(31, 28, 1),
+(32, 29, 2),
+(33, 29, 3),
+(34, 31, 1),
+(35, 31, 7),
+(36, 35, 3),
+(37, 35, 5),
+(38, 35, 8),
+(39, 36, 10),
+(40, 37, 10),
+(41, 38, 6),
+(42, 38, 7),
+(43, 38, 9),
+(44, 38, 10),
+(45, 39, 2),
+(46, 39, 3),
+(47, 39, 5),
+(48, 39, 7),
+(49, 39, 8),
+(50, 39, 9),
+(51, 39, 10);
 
 -- --------------------------------------------------------
 
@@ -283,6 +284,7 @@ INSERT INTO `comiccatergory` (`IDcatergory`, `IDcomic`) VALUES
 --
 
 CREATE TABLE `comictrans` (
+  `id` int(11) NOT NULL,
   `IDcomic` int(11) NOT NULL,
   `IDteam` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -291,19 +293,19 @@ CREATE TABLE `comictrans` (
 -- Đang đổ dữ liệu cho bảng `comictrans`
 --
 
-INSERT INTO `comictrans` (`IDcomic`, `IDteam`) VALUES
-(1, 1),
-(2, 1),
-(3, 1),
-(4, 2),
-(5, 2),
-(5, 3),
-(6, 3),
-(7, 2),
-(8, 1),
-(9, 3),
-(10, 3),
-(11, 1);
+INSERT INTO `comictrans` (`id`, `IDcomic`, `IDteam`) VALUES
+(1, 1, 1),
+(2, 2, 1),
+(3, 3, 1),
+(4, 4, 2),
+(5, 5, 2),
+(6, 5, 3),
+(7, 6, 3),
+(8, 7, 2),
+(9, 8, 1),
+(10, 9, 3),
+(11, 10, 3),
+(12, 11, 1);
 
 -- --------------------------------------------------------
 
@@ -1722,6 +1724,26 @@ INSERT INTO `permission` (`IDper`, `permission`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `theodoi`
+--
+
+CREATE TABLE `theodoi` (
+  `id` int(11) NOT NULL,
+  `IDuser` int(11) NOT NULL,
+  `IDcomic` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `theodoi`
+--
+
+INSERT INTO `theodoi` (`id`, `IDuser`, `IDcomic`) VALUES
+(13, 13, 7),
+(15, 13, 9);
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `transpermission`
 --
 
@@ -1794,7 +1816,8 @@ INSERT INTO `user` (`IDuser`, `mail`, `password`, `username`, `created`, `update
 (8, '3@gmail.com', '123456', 'chua 3', NULL, NULL, 1, 3, NULL),
 (9, '4@gmail.com', '123456', 'chua 4', NULL, NULL, NULL, NULL, NULL),
 (10, '5@gmail.com', '123456', 'chua 5', NULL, NULL, 1, 0, NULL),
-(11, '0@gmail.com', '123456', 'chua d?t', NULL, NULL, NULL, NULL, NULL);
+(11, '0@gmail.com', '123456', 'chua d?t', NULL, NULL, NULL, NULL, NULL),
+(13, '123456@gmail.com', '123456', '123456', '2022-04-01 11:23:26', '2022-04-02 11:03:37', NULL, NULL, 1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -1828,13 +1851,13 @@ ALTER TABLE `comic`
 -- Chỉ mục cho bảng `comiccatergory`
 --
 ALTER TABLE `comiccatergory`
-  ADD PRIMARY KEY (`IDcatergory`,`IDcomic`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `comictrans`
 --
 ALTER TABLE `comictrans`
-  ADD PRIMARY KEY (`IDcomic`,`IDteam`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `imagechapter`
@@ -1847,6 +1870,12 @@ ALTER TABLE `imagechapter`
 --
 ALTER TABLE `permission`
   ADD PRIMARY KEY (`IDper`);
+
+--
+-- Chỉ mục cho bảng `theodoi`
+--
+ALTER TABLE `theodoi`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `transpermission`
@@ -1895,6 +1924,18 @@ ALTER TABLE `comic`
   MODIFY `IDcomic` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT cho bảng `comiccatergory`
+--
+ALTER TABLE `comiccatergory`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+
+--
+-- AUTO_INCREMENT cho bảng `comictrans`
+--
+ALTER TABLE `comictrans`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT cho bảng `imagechapter`
 --
 ALTER TABLE `imagechapter`
@@ -1904,7 +1945,13 @@ ALTER TABLE `imagechapter`
 -- AUTO_INCREMENT cho bảng `permission`
 --
 ALTER TABLE `permission`
-  MODIFY `IDper` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `IDper` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT cho bảng `theodoi`
+--
+ALTER TABLE `theodoi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `transpermission`
@@ -1922,7 +1969,7 @@ ALTER TABLE `transteam`
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `IDuser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `IDuser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

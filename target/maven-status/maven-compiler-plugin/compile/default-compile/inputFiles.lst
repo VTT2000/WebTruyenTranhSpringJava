@@ -1,3 +1,4 @@
+C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\bean\TheoDoi.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\bean\ComicTrans.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\bean\ComicCatergory.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\config\WebMvcConfig.java
@@ -14,8 +15,10 @@ C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\repository\ImageChapterRepository.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\bean\User.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\controller\HomeController.java
+C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\repository\TheoDoiRepository.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\repository\TransPermissionRepository.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\object\DangNhap.java
+C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\service\TheoDoiService.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\repository\ChapterRepository.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\service\AuthorService.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\service\ComicCatergoryService.java
@@ -40,4 +43,5 @@ C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\config\WebAppInitializer.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\service\ComicTransService.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\service\PermissionService.java
+C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\controller\UserController.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\bean\Chapter.java
