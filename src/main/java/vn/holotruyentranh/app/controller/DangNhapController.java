@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -26,7 +27,8 @@ public class DangNhapController {
 	public String Login(
 			@RequestBody DangNhap taiKhoan, 
 			HttpServletRequest request, 
-			HttpServletResponse response) {
+			HttpServletResponse response,
+			HttpSession session) {
         String phanHoi = "";
         List<User> list = userDao.listAll();
         User kh = null;
@@ -43,8 +45,8 @@ public class DangNhapController {
         else
         {
         	if(kh.getPassword().compareTo(taiKhoan.getPass()) == 0) {
-        		request.getSession().setAttribute("KhachHangName", kh.getUsername());
-            	request.getSession().setAttribute("KhachHangIdKH", kh.getIDuser());
+        		session.setAttribute("KhachHangName", kh.getUsername());
+        		session.setAttribute("KhachHangIdKH", kh.getIDuser());
             	if (taiKhoan.isRemember()) {
             		Cookie cook1 = new Cookie("KhachHangIdKH", String.valueOf(kh.getIDuser()) ); //bake cookie
                     Cookie cook2 = new Cookie("KhachHangName", kh.getUsername()); //bake cookie

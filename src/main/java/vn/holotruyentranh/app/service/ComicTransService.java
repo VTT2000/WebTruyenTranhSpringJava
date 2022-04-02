@@ -21,7 +21,7 @@ public class ComicTransService {
 		return (List<ComicTrans>) repo.findAll();
 	}
 	
-	public ComicTrans get(long id) {
+	public ComicTrans get(Long id) {
 		Optional<ComicTrans> result = repo.findById(id);
 		return result.get();
 	}

@@ -7,7 +7,6 @@ import javax.persistence.Id;
 
 @Entity
 public class ComicCatergory {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

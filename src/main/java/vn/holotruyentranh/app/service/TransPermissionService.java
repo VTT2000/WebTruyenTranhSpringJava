@@ -20,7 +20,7 @@ public class TransPermissionService {
 		return (List<TransPermission>) repo.findAll();
 	}
 	
-	public TransPermission get(long id) {
+	public TransPermission get(Long id) {
 		Optional<TransPermission> result = repo.findById(id);
 		return result.get();
 	}

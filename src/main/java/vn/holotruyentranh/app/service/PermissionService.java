@@ -20,7 +20,7 @@ public class PermissionService {
 		return (List<Permission>) repo.findAll();
 	}
 	
-	public Permission get(long id) {
+	public Permission get(Long id) {
 		Optional<Permission> result = repo.findById(id);
 		return result.get();
 	}

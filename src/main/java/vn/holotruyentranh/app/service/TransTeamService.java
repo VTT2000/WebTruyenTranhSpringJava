@@ -20,7 +20,7 @@ public class TransTeamService {
 		return (List<TransTeam>) repo.findAll();
 	}
 	
-	public TransTeam get(long id) {
+	public TransTeam get(Long id) {
 		Optional<TransTeam> result = repo.findById(id);
 		return result.get();
 	}

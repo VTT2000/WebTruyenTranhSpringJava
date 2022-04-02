@@ -1,5 +1,6 @@
 package vn.holotruyentranh.app.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,7 +21,7 @@ public class ImageChapterService{
 		return (List<ImageChapter>) repo.findAll();
 	}
 	
-	public ImageChapter get(long id) {
+	public ImageChapter get(Long id) {
 		Optional<ImageChapter> result = repo.findById(id);
 		return result.get();
 	}
@@ -30,5 +31,16 @@ public class ImageChapterService{
 	
 	public void delete(Long id) {
 		repo.deleteById(id);
+	}
+	
+	public List<ImageChapter> getByIDchapter(Long IDchapter) {
+		List<ImageChapter> list0 = (List<ImageChapter>)repo.findAll();
+		List<ImageChapter> list1 = new ArrayList<ImageChapter>();
+		for (ImageChapter imageChapter : list0) {
+			if(imageChapter.getIDchapter() == IDchapter) {
+				list1.add(imageChapter);
+			}
+		}
+		return list1;
 	}
 }

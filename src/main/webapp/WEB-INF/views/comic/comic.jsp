@@ -83,7 +83,7 @@
 								<c:if test="${ not empty chapters }">
 									<c:forEach var="item" items="${ chapters }">
 										<tr>
-											<td><a href="#"> ${ item.getChapter() }</a></td>
+											<td><a href="../Comic/Chapter?IDcomic=${ comic.getIDcomic() }&IDchapter=${ item.getIDchapter() }"> ${ item.getChapter() }</a></td>
 											<td style="float: right;">${ item.getCreated() }</td>
 										</tr>
 									</c:forEach>

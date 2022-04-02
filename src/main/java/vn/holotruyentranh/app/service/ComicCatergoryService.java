@@ -21,7 +21,7 @@ public class ComicCatergoryService {
 		return (List<ComicCatergory>) repo.findAll();
 	}
 	
-	public ComicCatergory get(long id) {
+	public ComicCatergory get(Long id) {
 		Optional<ComicCatergory> result = repo.findById(id);
 		return result.get();
 	}

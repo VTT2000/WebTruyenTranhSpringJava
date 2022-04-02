@@ -20,7 +20,7 @@ public class UserService {
 		return (List<User>) repo.findAll();
 	}
 	
-	public User get(long id) {
+	public User get(Long id) {
 		Optional<User> result = repo.findById(id);
 		return result.get();
 	}

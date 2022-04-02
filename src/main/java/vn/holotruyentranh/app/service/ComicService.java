@@ -20,7 +20,7 @@ public class ComicService {
 		return (List<Comic>) repo.findAll();
 	}
 	
-	public Comic get(long id) {
+	public Comic get(Long id) {
 		Optional<Comic> result = repo.findById(id);
 		return result.get();
 	}
@@ -31,4 +31,5 @@ public class ComicService {
 	public void delete(Long id) {
 		repo.deleteById(id);
 	}
+	
 }

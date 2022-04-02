@@ -20,7 +20,7 @@ public class AuthorService {
 		return (List<Author>) repo.findAll();
 	}
 	
-	public Author get(long id) {
+	public Author get(Long id) {
 		Optional<Author> result = repo.findById(id);
 		return result.get();
 	}

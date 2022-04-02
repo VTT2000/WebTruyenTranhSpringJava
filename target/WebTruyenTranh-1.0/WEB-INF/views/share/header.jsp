@@ -17,8 +17,8 @@
 		</div>
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-left navbar-uppercase">
-				<li><a href="#" target="_blank">Trang chủ</a></li>
-				<li><a href="#" target="_blank">Loại truyện</a></li>
+				<li><a href="../home/index">Trang chủ</a></li>
+				<li><a href="../Comic/AllComic?IDcatergory=1">Loại truyện</a></li>
 				<form class="navbar-form navbar-left">
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="Search">

@@ -20,7 +20,7 @@ public class CatergoryService {
 		return (List<Catergory>) repo.findAll();
 	}
 	
-	public Catergory get(long id) {
+	public Catergory get(Long id) {
 		Optional<Catergory> result = repo.findById(id);
 		return result.get();
 	}
