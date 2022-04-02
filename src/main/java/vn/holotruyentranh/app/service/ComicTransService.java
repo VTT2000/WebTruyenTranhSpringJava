@@ -1,5 +1,6 @@
 package vn.holotruyentranh.app.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,5 +31,25 @@ public class ComicTransService {
 	
 	public void delete(Long id) {
 		repo.deleteById(id);
+	}
+	
+	public List<ComicTrans> getByIDcomic(Long id) {
+		List<ComicTrans> list0 = new ArrayList<ComicTrans>();
+		for (ComicTrans comicTrans : (List<ComicTrans>)repo.findAll()) {
+			if(comicTrans.getIDcomic() == id) {
+				list0.add(comicTrans);
+			}
+		}
+		return list0;
+	}
+	
+	public List<ComicTrans> getByIDteam(Long id) {
+		List<ComicTrans> list0 = new ArrayList<ComicTrans>();
+		for (ComicTrans comicTrans : (List<ComicTrans>)repo.findAll()) {
+			if(comicTrans.getIDteam() == id) {
+				list0.add(comicTrans);
+			}
+		}
+		return list0;
 	}
 }
