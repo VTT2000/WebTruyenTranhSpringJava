@@ -71,8 +71,7 @@
 				</div>
 
 				<div class="one_half last">
-					<a class="btn" href="#" id="register_form" name="register_form">Sign
-						up</a>
+					<a class="btn" href="#" id="register_form" name="register_form">Sign up</a>
 				</div>
 			</div>
 		</div>
