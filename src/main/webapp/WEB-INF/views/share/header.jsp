@@ -12,11 +12,13 @@
 					class="icon-bar bar1"></span> <span class="icon-bar bar2"></span> <span
 					class="icon-bar bar3"></span>
 			</button>
-			<a href="#" class="navbar-brand icon"> SPRINGCOMIC </a>
+			<div  class="navbar-brand icon"> 
+				<img src="../assets/img/logo.png"/>
+			</div>
 
 		</div>
 		<div class="collapse navbar-collapse">
-			<ul class="nav navbar-nav navbar-left navbar-uppercase">
+			<ul class="nav navbar-nav navbar-right navbar-uppercase">
 				<li><a href="../home/index">Trang chủ</a></li>
 				<li><a href="../Comic/AllComic?IDcatergory=1">Loại truyện</a></li>
 				<form class="navbar-form navbar-left">

@@ -19,11 +19,11 @@
 									<h2 class="title">${ comic.getComic() }</h2>
 									<div class="comic-info">
 										<div class="row">
-											<label style="margin-left: 10px;">Tác giả:</label> <a
+											<label style="margin-left: -5px;">Tác giả:</label> <a
 												href="#">${ author.getAuthor() }</a>
 										</div>
 										<div class="row">
-											<label style="margin-left: 10px;">Thể loại:</label> <span>
+											<label style="margin-left: -5px;">Thể loại:</label> <span>
 												<c:if test="${ not empty catergorys }">
 													<c:forEach var="item" items="${ catergorys }">
 														<a href="${ item.getIDcatergory() }">${ item.getCatergory() },</a>
