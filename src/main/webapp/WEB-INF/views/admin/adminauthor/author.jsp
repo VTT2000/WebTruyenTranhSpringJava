@@ -24,7 +24,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                 <a class=" btn btn-primary" style="float:right; margin-right: 10px; width: 100px;">thêm</a>
+                 <a href="../admin/author_insert" class=" btn btn-primary" style="float:right; margin-right: 10px; width: 100px;">thêm</a>
 				<table id="data" class="table table-bordered table-hover">
 						<thead>
 						<tr>
@@ -40,8 +40,8 @@
 								<td>${item.author}</td>
 								 <td>
 			                      <form action="#" method="Post">
-			                        <a href="#" class="fas fa-wrench"></a>		                      
-			                        <button type="submit" class=" btn btn-primary">xoá</button>
+			                        <a href="../admin/author_edit?id=${ item.IDauthor }" class="fas fa-wrench">Sửa</a>		                      
+			                        <a href="../admin/deleteauthor/${item.IDauthor}" class="fas fa-trash">Xoá</a>
 			                      </form>                    
                    				 </td>
 							</tr>

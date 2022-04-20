@@ -20,25 +20,27 @@
                   <div class="col-md-6">
                     <div class="card card-primary">
                       <div class="card-header">     
-                          <h3 class="card-title">Thêm truyện</h3>     
+                          <h3 class="card-title">Sửa chapter truyện</h3>     
                       </div>
                       <!-- /.card-header -->
-                          <form method="post" action="#">      
+                          <form method="POST" action="../admin/chapter_edit" >
+                                <input name="IDchapter" value="${ temp.IDchapter }" type="hidden" />
                               <div class="card-body">
                                 <div class="form-group">
-                                  <label for="">Họ</label>
-                                  <input type="name" class="form-control" name="username" placeholder="tên truyện">                            
+                                  <label for="0">chapter</label>
+                                  <input value="${temp.chapter }" id="0" type="text" class="form-control" name="chapter" placeholder="chapter"/>                            
                                 </div>
                                 <div class="form-group">
-                                  <label for="">Tên</label>
-                                  <input type="name" class="form-control" name="password" placeholder="ảnh truyện">
+                                  <label for="1">IDcomic</label>
+                                  <input id="1" type="text" class="form-control" name="IDcomic" placeholder="Mô tả" value="${temp.IDcomic}" />
                                 </div>                             
-                                  
+                                  <label style="color:red;">${ error }</label>                           
+                              </div>    
                               <div class="card-footer">
-                                <a href="#"class="btn btn-primary">trở về </a>
-                                <button type="submit" class="btn btn-primary">Thêm</button>
+                                <a href="../admin/chapter"class="btn btn-primary">trở về </a>
+                                <button type="submit" class="btn btn-primary">Cập nhật</button>
                               </div>
-                            </form>
+                        	</form>
                       <!-- /.card-body -->
                     </div>
                     <!-- /.card -->   

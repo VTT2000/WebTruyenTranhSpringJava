@@ -20,7 +20,7 @@
                   <div class="col-md-6">
                     <div class="card card-primary">
                       <div class="card-header">     
-                          <h3 class="card-title">Chi tiết</h3>     
+                          <h3 class="card-title">Sửa thể loại</h3>     
                       </div>
                       <!-- /.card-header -->
                           <form method="POST" action="../admin/category_edit" >
@@ -35,7 +35,7 @@
                                   <textarea id="1" type="text" class="form-control" name="description" placeholder="Mô tả">${temp.description }</textarea>
                                 </div>                             
                                   <label style="color:red;">${ error }</label>                           
-                                  
+                              </div>    
                               <div class="card-footer">
                                 <a href="../admin/category"class="btn btn-primary">trở về </a>
                                 <button type="submit" class="btn btn-primary">Cập nhật</button>

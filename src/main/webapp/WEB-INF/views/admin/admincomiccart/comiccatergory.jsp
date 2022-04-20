@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Quản lý thể loại</h1>
+            <h1>Quản lý ảnh chapter</h1>
           </div>
       
         </div>
@@ -24,31 +24,31 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                 <a href="../admin/category_insert" class="btn btn-primary" style="float:right; margin:10px; width: 100px;">thêm</a>
+                 <a href="../admin/comiccatergory_insert" class=" btn btn-primary" style="float:right; margin:10px; width: 100px;">thêm</a>
 				<table id="data" class="table table-bordered table-hover">
 					<thead>
 					<tr>
-						<th>ID</th>
-						<th>name</th>
-						<th>description</th>
-						<th>action</th>
-					</tr>
-					</thead>
-					<tbody>
-					<c:forEach items="${listCatergorys}" var="item">
+					<th>ID</th>
+					<th>IdComic</th>
+					<th>IdCatergory</th>
+					<th>action</th>
+			</tr>
+			</thead>
+			<tbody>
+					<c:forEach items="${listComicCatergorys}" var="item">
 						<tr>
+							<td>${item.id}</td>
+							<td>${item.IDcomic}</td>
 							<td>${item.IDcatergory}</td>
-							<td>${item.catergory}</td>
-							<td>${item.description}</td>
-							<td>
-						   		<form action="#" method="Post">
-						       		<a href="../admin/category_edit?id=${ item.IDcatergory }" class="fas fa-wrench">Sửa</a>		                      
-						        	<a href="../admin/delete/${item.IDcatergory}" class="fas fa-trash">Xoá</a>
-						     	</form>                    
-			             	</td>
-						</tr>
-					</c:forEach>
-					</tbody>	
+							 <td>
+			                      <form action="#" method="Post">
+			                        <a href="../admin/comiccatergory_edit?id=${ item.id }" class="fas fa-wrench">Sửa</a>		                      
+			                        <a href="../admin/deletecomicatergory/${item.id}" class="fas fa-trash">Xoá</a>
+			                      </form>                    
+                   			</td>
+					</tr>
+				</c:forEach>
+				</tbody>	
 				</table>
 				</div>
               <!-- /.card-body -->

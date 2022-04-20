@@ -55,7 +55,7 @@
  <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-    <a href="#" class="brand-link">
+    <a href="../admin/index" class="brand-link">
       <span class="brand-text font-weight-light">Admin</span>
     </a>
 
@@ -74,7 +74,15 @@
                 Quản lý thể loại
               </p>
             </a>
-           </li>         
+           </li>
+           <li class="nav-item">
+            <a href="../admin/comiccatergory" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+               Quản lý truyện - thể loại
+              </p>
+            </a>
+          </li>         
           <li class="nav-item">
             <a href="../admin/comic" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
@@ -122,7 +130,15 @@
                 trở về trang chủ
               </p>
             </a>
-           </li> 
+           </li>
+           <li class="nav-item">
+            <a href="../admin/logout" class="nav-link">
+            <i class="nav-icon fas fa-door-open"></i> 
+              <p>
+                Logout
+              </p>
+            </a>
+           </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

@@ -20,22 +20,19 @@
                   <div class="col-md-6">
                     <div class="card card-primary">
                       <div class="card-header">     
-                          <h3 class="card-title">Thêm truyện</h3>     
+                          <h3 class="card-title">Thêm tác giả</h3>     
                       </div>
                       <!-- /.card-header -->
-                          <form method="post" action="#">      
-                              <div class="card-body">
-                                <div class="form-group">
-                                  <label for="">Họ</label>
-                                  <input type="name" class="form-control" name="username" placeholder="tên truyện">                            
-                                </div>
-                                <div class="form-group">
-                                  <label for="">Tên</label>
-                                  <input type="name" class="form-control" name="password" placeholder="ảnh truyện">
-                                </div>                             
-                                  
+                          <form method="POST" action="../admin/author_insert">      
+                              	<div class="card-body">
+                                	<div class="form-group">
+                                  	<label for="0">Tên tác giả</label>
+                                  	<input id="0" type="text" class="form-control" name="author" placeholder="Tên tác giả"/>                            
+                               		</div>
+                               	</div>                       
+                                  <label style="color:red;">${ error }</label>
                               <div class="card-footer">
-                                <a href="#"class="btn btn-primary">trở về </a>
+                                <a href="../admin/author" class="btn btn-primary">trở về </a>
                                 <button type="submit" class="btn btn-primary">Thêm</button>
                               </div>
                             </form>

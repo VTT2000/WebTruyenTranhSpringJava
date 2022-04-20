@@ -24,7 +24,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                 <a class=" btn btn-primary" style="float:right; margin:10px; width: 100px;">thêm</a>
+                 <a href="../admin/chapter_insert" class=" btn btn-primary" style="float:right; margin:10px; width: 100px;">thêm</a>
 				<table id="data" class="table table-bordered table-hover">
 					<thead>
 					<tr>
@@ -42,8 +42,8 @@
 							<td>${item.IDcomic}</td>
 							 <td>
 			                      <form action="#" method="Post">
-			                        <a href="#" class="fas fa-wrench"></a>		                      
-			                        <button type="submit" class=" btn btn-primary">xoá</button>
+			                        <a href="../admin/chapter_edit?id=${ item.IDchapter }" class="fas fa-wrench">Sửa</a>		                      
+			                        <a href="../admin/delete/${item.IDchapter}" class="fas fa-trash">Xoá</a>
 			                      </form>                    
                    			</td>
 						</tr>

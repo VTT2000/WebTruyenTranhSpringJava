@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Quản lý thể loại</h1>
+            <h1>Quản lý ảnh chapter</h1>
           </div>
       
         </div>
@@ -20,24 +20,25 @@
                   <div class="col-md-6">
                     <div class="card card-primary">
                       <div class="card-header">     
-                          <h3 class="card-title">Thêm loại truyện</h3>     
+                          <h3 class="card-title">Thêm truyện</h3>     
                       </div>
                       <!-- /.card-header -->
-                          <form method="POST" action="../admin/category_insert">      
+                          <form method="POST" action="../admin/comiccatergory_edit" >
+                                <input name="id" value="${ temp.id }" type="hidden" />
                               <div class="card-body">
                                 <div class="form-group">
-                                  <label for="0">Tên thể loại</label>
-                                  <input id="0" type="text" class="form-control" name="catergory" placeholder="Tên thể loại"/>                            
+                                  <label for="0">IDcomic</label>
+                                  <input value="${temp.IDcomic }" id="0" type="text" class="form-control" name="IDcomic" placeholder="IDcomic"/>                            
                                 </div>
                                 <div class="form-group">
-                                  <label for="1">Mô tả</label>
-                                  <textarea id="1" type="text" class="form-control" name="description" placeholder="Mô tả"></textarea>
-                                </div>   
-                                </div>                          
-                                  <label style="color:red;">${ error }</label>
+                                  <label for="1">IDcatergory</label>
+                                  <input value="${temp.IDcatergory }" id="1" type="text" class="form-control" name="IDcatergory" placeholder="IDcatergory"/>                            
+                                </div>  
+                                  <label style="color:red;">${ error }</label>                           
+                              </div>    
                               <div class="card-footer">
-                                <a href="../admin/category" class="btn btn-primary">trở về </a>
-                                <button type="submit" class="btn btn-primary">Thêm</button>
+                                <a href="../admin/comiccatergory"class="btn btn-primary">trở về </a>
+                                <button type="submit" class="btn btn-primary">Cập nhật</button>
                               </div>
                             </form>
                       <!-- /.card-body -->

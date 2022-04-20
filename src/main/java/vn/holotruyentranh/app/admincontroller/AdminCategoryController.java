@@ -4,12 +4,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -22,7 +25,26 @@ public class AdminCategoryController {
 	@Autowired
 	private CatergoryService CatergoryDao;
 	@RequestMapping("category")
-	public String index(Model model) {
+	public String index(Model model, HttpSession session, HttpServletRequest request){
+		Cookie[] cookies = null;
+        cookies = request.getCookies();
+		if(cookies.length != 0) {
+	        for (int i = 0; i < cookies.length; i++) {
+	        	Cookie cookie = null;
+	        	cookie = cookies[i];
+	        	if ((cookie.getName()).compareTo("AdminName") == 0) {
+	        		session.setAttribute("AdminName", cookie.getValue());
+                }
+	        	if ((cookie.getName()).compareTo("AdminIdKH") == 0) {
+	        		session.setAttribute("AdminIdKH", cookie.getValue());
+                }
+	        }
+		}
+		if(
+				session.getAttribute("AdminName") == null &&
+				session.getAttribute("AdminIdKH") == null) {
+			return "redirect:/admin/login";
+		}
 		List<Catergory> listCatergorys = CatergoryDao.listAll();
 		model.addAttribute("listCatergorys", listCatergorys);
 		return "admin/admincategory/category";
@@ -86,4 +108,9 @@ public class AdminCategoryController {
 		return "admin/admincategory/edit";
 	}
 	
+	@RequestMapping("delete/{IDcatergory}")
+	public String delete(@PathVariable(name = "IDcatergory") Long IDcatergory) {
+		CatergoryDao.delete(IDcatergory);
+		return "redirect:/admin/catergory";
+	}
 }

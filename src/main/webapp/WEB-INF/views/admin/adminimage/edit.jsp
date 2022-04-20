@@ -23,20 +23,22 @@
                           <h3 class="card-title">Thêm truyện</h3>     
                       </div>
                       <!-- /.card-header -->
-                          <form method="post" action="#">      
+                          <form method="POST" action="../admin/imagechapter_edit" >
+                                <input name="idImageChapter" value="${ temp.idImageChapter }" type="hidden" />
                               <div class="card-body">
                                 <div class="form-group">
-                                  <label for="">Họ</label>
-                                  <input type="name" class="form-control" name="username" placeholder="tên truyện">                            
+                                  <label for="0">IDchapter</label>
+                                  <input value="${temp.IDchapter }" id="0" type="text" class="form-control" name="IDchapter" placeholder="IDchapter"/>                            
                                 </div>
                                 <div class="form-group">
-                                  <label for="">Tên</label>
-                                  <input type="name" class="form-control" name="password" placeholder="ảnh truyện">
-                                </div>                             
-                                  
+                                  <label for="1">ImageLink</label>
+                                  <input value="${temp.getImageLink() }" id="1" type="text" class="form-control" name="ImageLink" placeholder="ImageLink"/>                            
+                                </div>  
+                                  <label style="color:red;">${ error }</label>                           
+                              </div>    
                               <div class="card-footer">
-                                <a href="#"class="btn btn-primary">trở về </a>
-                                <button type="submit" class="btn btn-primary">Thêm</button>
+                                <a href="../admin/imagechapter"class="btn btn-primary">trở về </a>
+                                <button type="submit" class="btn btn-primary">Cập nhật</button>
                               </div>
                             </form>
                       <!-- /.card-body -->

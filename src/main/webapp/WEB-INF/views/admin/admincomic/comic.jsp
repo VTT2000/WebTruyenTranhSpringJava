@@ -24,7 +24,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                 <a class=" btn btn-primary" style="float:right; margin:10px; width: 100px;">thêm</a>
+                 <a href="../admin/comic_insert" class=" btn btn-primary" style="float:right; margin:10px; width: 100px;">thêm</a>
 				<table id="data" class="table table-bordered table-hover">
 						<thead>
 						<tr>
@@ -42,13 +42,13 @@
 							<tr>
 								<td>${item.IDcomic}</td>
 								<td>${item.comic}</td>
-								<td><img alt="${ item.comic }" class=""src="${ item.getImageLink() }"  /></td>
+								<td><img alt="${ item.comic }" src="${ item.getImageLink() }"/></td>
 								<td>${item.description}</td>
 								<td>${item.status}</td>
 								 <td>
 			                      <form action="#" method="Post">
-			                        <a href="#" class="fas fa-wrench"></a>		                      
-			                        <button type="submit" class=" btn btn-primary">xoá</button>
+			                        <a href="../admin/comic_edit?id=${ item.IDcomic }" class="fas fa-wrench">Sửa</a>		                      
+			                        <a href="../admin/delete/${item.IDcomic}" class="fas fa-trash">Xoá</a>
 			                      </form>                    
                    				 </td>
 							</tr>

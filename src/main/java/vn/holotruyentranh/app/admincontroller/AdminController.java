@@ -118,4 +118,19 @@ public class AdminController {
 		return "redirect:/admin/index";
 	}
 	
+	@RequestMapping("/logout")
+	public String logout(Model model, HttpServletRequest request, HttpSession session, HttpServletResponse response) {
+		session.setAttribute("AdminIdKH", null);
+		session.setAttribute("AdminName", null);
+		
+		Cookie cookie = null;
+        Cookie[] cookies = null;
+        cookies = request.getCookies();
+        for (int i = 0; i < cookies.length; i++) {
+            cookie = cookies[i];
+            cookie.setMaxAge(0);
+            response.addCookie(cookie);
+        }
+		return "redirect:/admin/login";
+	}
 }
