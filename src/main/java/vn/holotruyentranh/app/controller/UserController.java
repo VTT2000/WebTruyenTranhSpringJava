@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -42,10 +43,19 @@ public class UserController {
 	}
 	
 	@RequestMapping("/LogOut")
-	public String LogOut(Model model, HttpServletRequest request, HttpSession session) {
+	public String LogOut(Model model, HttpServletRequest request, HttpSession session, HttpServletResponse response) {
 		session.setAttribute("history"+session.getAttribute("KhachHangIdKH"), null);
 		session.setAttribute("KhachHangIdKH", null);
 		session.setAttribute("KhachHangName", null);
+		
+		Cookie cookie = null;
+        Cookie[] cookies = null;
+        cookies = request.getCookies();
+        for (int i = 0; i < cookies.length; i++) {
+            cookie = cookies[i];
+            cookie.setMaxAge(0);
+            response.addCookie(cookie);
+        }
 		return "redirect:/home/index";
 	}
 	
