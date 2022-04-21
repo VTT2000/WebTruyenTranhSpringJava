@@ -22,20 +22,29 @@
                       <div class="card-header">     
                           <h3 class="card-title">Thêm truyện</h3>     
                       </div>
-                      <!-- /.card-header -->
-                          <form method="post" action="#">      
+                      <!-- /.card-header -->   
+                              <form method="POST" action="../admin/comic_insert">      
                               <div class="card-body">
-                                <div class="form-group">
-                                  <label for="">Họ</label>
-                                  <input type="name" class="form-control" name="username" placeholder="tên truyện">                            
-                                </div>
-                                <div class="form-group">
-                                  <label for="">Tên</label>
-                                  <input type="name" class="form-control" name="password" placeholder="ảnh truyện">
-                                </div>                             
-                                  
+	                                <div class="form-group">
+	                                  <label for="0">Tên truyện</label>
+	                                  <input id="0" type="text" class="form-control" name="comic" placeholder="Tên truyện"/>                            
+	                                </div>
+	                                <div class="form-group">
+	                                  <label for="1">IDauthor</label>
+	                                  <input id="1" type="text" class="form-control" name="IDauthor" placeholder="IDauthor"></input>
+	                                </div>  
+	                                <div class="form-group">
+	                                  <label for="2">Mô tả</label>
+	                                  <textarea id="2" type="text" class="form-control" name="description" placeholder="Mô tả"></textarea>
+	                                </div>
+	                                <div class="form-group">
+	                                  <label for="3">ImageLink</label>
+	                                  <input id="3" type="text" class="form-control" name="ImageLink" placeholder="ImageLink"></input>
+	                                </div>
+                                </div>                          
+                                  <label style="color:red;">${ error }</label>
                               <div class="card-footer">
-                                <a href="#"class="btn btn-primary">trở về </a>
+                                <a href="../admin/comic" class="btn btn-primary">trở về </a>
                                 <button type="submit" class="btn btn-primary">Thêm</button>
                               </div>
                             </form>

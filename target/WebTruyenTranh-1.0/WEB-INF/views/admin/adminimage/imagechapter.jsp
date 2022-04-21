@@ -24,7 +24,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                 <a class=" btn btn-primary" style="float:right; margin:10px; width: 100px;">thêm</a>
+                 <a href="../admin/imagechapter_insert" class=" btn btn-primary" style="float:right; margin:10px; width: 100px;">thêm</a>
 				<table id="data" class="table table-bordered table-hover">
 					<thead>
 					<tr>
@@ -42,14 +42,26 @@
 						<td><img alt="${item.idImageChapter}" class=""src="${item.imageLink}" height = "100" /></td>
 						 <td>
 			                      <form action="#" method="Post">
-			                        <a href="#" class="fas fa-wrench"></a>		                      
-			                        <button type="submit" class=" btn btn-primary">xoá</button>
+			                        <a href="../admin/imagechapter_edit?id=${ item.idImageChapter }" class="fas fa-wrench">Sửa</a>		                      
+			                        <a href="../admin/deleteimage/${item.idImageChapter}" class="fas fa-trash">Xoá</a>
 			                      </form>                    
                    			</td>
 					</tr>
 				</c:forEach>
 				</tbody>	
 				</table>
+				
+				<div>
+    	<ul class="pagination" style="flex-wrap:wrap;">
+    	<c:forEach begin="1" end="${ totalPages }" var="i">
+    		<li class="page-item">
+    		<a class="page-link" href="../admin/imagechapter_${ i }">${ i }</a>
+    		</li>
+    	</c:forEach>
+    	</ul>
+    </div>
+    
+				
 				</div>
               <!-- /.card-body -->
             </div>

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,12 +21,17 @@ import vn.holotruyentranh.app.bean.Catergory;
 import vn.holotruyentranh.app.service.CatergoryService;
 
 @Controller
-@RequestMapping("/admin/")
+@RequestMapping("/admin")
 public class AdminCategoryController {
 	@Autowired
 	private CatergoryService CatergoryDao;
-	@RequestMapping("category")
+	@RequestMapping("/category")
 	public String index(Model model, HttpSession session, HttpServletRequest request){
+		return listByPage(model, 1, session, request);
+	}
+	
+	@RequestMapping("/category_{pageNum}")
+	public String listByPage(Model model, @PathVariable(name = "pageNum") int currentPage, HttpSession session, HttpServletRequest request) {
 		Cookie[] cookies = null;
         cookies = request.getCookies();
 		if(cookies.length != 0) {
@@ -45,18 +51,27 @@ public class AdminCategoryController {
 				session.getAttribute("AdminIdKH") == null) {
 			return "redirect:/admin/login";
 		}
-		List<Catergory> listCatergorys = CatergoryDao.listAll();
-		model.addAttribute("listCatergorys", listCatergorys);
+		
+		Page<Catergory> page = CatergoryDao.listAll(currentPage);
+		long totalItems = page.getTotalElements();
+		int totalPages = page.getTotalPages();
+		List<Catergory> list = page.getContent();
+		
+		model.addAttribute("listCatergorys", list);
+		model.addAttribute("totalItems", totalItems);
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("currentPage", currentPage);
+		
 		return "admin/admincategory/category";
 	}
 	
-	@RequestMapping(value = "category_insert", method = RequestMethod.GET)
+	@RequestMapping(value = "/category_insert", method = RequestMethod.GET)
 	public String insert(Model model){	
 		model.addAttribute("error","");
 		return "admin/admincategory/insert";
 	}
 	
-	@RequestMapping(value = "category_insert", method = RequestMethod.POST)
+	@RequestMapping(value = "/category_insert", method = RequestMethod.POST)
 	public String insert0(@ModelAttribute Catergory catergory0, Model model, HttpServletRequest request){
 		List<Catergory> list0 = CatergoryDao.listAll();
 		Catergory a = null;
@@ -77,7 +92,7 @@ public class AdminCategoryController {
 		return "admin/admincategory/insert";
 	}
 	
-	@RequestMapping(value = "category_edit", method = RequestMethod.GET)
+	@RequestMapping(value = "/category_edit", method = RequestMethod.GET)
 	public String edit(Model model, HttpServletRequest request){
 		Long idLong = Long.parseLong(request.getParameter("id"));
 		Catergory aCatergory = CatergoryDao.get(idLong);
@@ -86,7 +101,7 @@ public class AdminCategoryController {
 		return "admin/admincategory/edit";
 	}
 	
-	@RequestMapping(value = "category_edit", method = RequestMethod.POST)
+	@RequestMapping(value = "/category_edit", method = RequestMethod.POST)
 	public String edit0(@ModelAttribute Catergory catergory0, Model model, HttpServletRequest request){
 		List<Catergory> list0 = CatergoryDao.listAll();
 		Catergory a = null;
@@ -108,9 +123,10 @@ public class AdminCategoryController {
 		return "admin/admincategory/edit";
 	}
 	
-	@RequestMapping("delete/{IDcatergory}")
-	public String delete(@PathVariable(name = "IDcatergory") Long IDcatergory) {
+	@RequestMapping("/deletecatergory/{IDcatergory}")
+	public String deletecatergory(@PathVariable(name = "IDcatergory") Long IDcatergory) {
 		CatergoryDao.delete(IDcatergory);
-		return "redirect:/admin/catergory";
+		return "redirect:/admin/category";
+		
 	}
 }

@@ -23,19 +23,7 @@ import vn.holotruyentranh.app.service.UserService;
 public class AdminController {
 	@Autowired
 	private UserService userService;
-	/*
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login( ModelMap mm ) {
-		mm.put("tk", new UserService());
-		return "admin/login";
-	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(@ModelAttribute(value = "tk") UserService tk ,ModelMap mm ) {
-		
-		return "admin/login";
-	}
-	*/
 	@RequestMapping(value = "/index")
 	public String index(HttpSession session, HttpServletRequest request){
 		Cookie[] cookies = null;

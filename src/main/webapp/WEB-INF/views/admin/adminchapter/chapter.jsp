@@ -43,13 +43,24 @@
 							 <td>
 			                      <form action="#" method="Post">
 			                        <a href="../admin/chapter_edit?id=${ item.IDchapter }" class="fas fa-wrench">Sửa</a>		                      
-			                        <a href="../admin/delete/${item.IDchapter}" class="fas fa-trash">Xoá</a>
+			                        <a href="../admin/deletechapter/${item.IDchapter}" class="fas fa-trash">Xoá</a>
 			                      </form>                    
                    			</td>
 						</tr>
 					</c:forEach>
 					</tbody>	
 				</table>
+				
+				<div>
+    	<ul class="pagination">	
+    	<c:forEach begin="1" end="${ totalPages }" var="i">
+    	<li class="page-item">
+    		<a class="page-link" href="../admin/chapter_${ i }">${ i }</a>
+    		</li>	
+    	</c:forEach>
+    		</ul>
+    </div>
+				
 				</div>
               <!-- /.card-body -->
             </div>

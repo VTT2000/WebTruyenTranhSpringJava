@@ -3,7 +3,6 @@ vn\holotruyentranh\app\bean\TransTeam.class
 vn\holotruyentranh\app\bean\User.class
 vn\holotruyentranh\app\controller\DangNhapController.class
 vn\holotruyentranh\app\bean\TransPermission.class
-vn\holotruyentranh\app\admincontroller\OldAdminController.class
 vn\holotruyentranh\app\service\TransPermissionService.class
 vn\holotruyentranh\app\service\ChapterService.class
 vn\holotruyentranh\app\admincontroller\AdminCategoryController.class
@@ -19,6 +18,7 @@ vn\holotruyentranh\app\repository\TransPermissionRepository.class
 vn\holotruyentranh\app\service\ComicCatergoryService.class
 vn\holotruyentranh\app\repository\PermissionRepository.class
 vn\holotruyentranh\app\service\ComicTransService.class
+vn\holotruyentranh\app\admincontroller\AdminImageChapterController.class
 vn\holotruyentranh\app\bean\Comic.class
 vn\holotruyentranh\app\bean\TheoDoi.class
 vn\holotruyentranh\app\object\DangNhap.class
@@ -38,7 +38,6 @@ vn\holotruyentranh\app\repository\ImageChapterRepository.class
 vn\holotruyentranh\app\service\UserService.class
 vn\holotruyentranh\app\service\AuthorService.class
 vn\holotruyentranh\app\object\DangKy.class
-vn\holotruyentranh\app\admincontroller\AdminImageChapterDao.class
 vn\holotruyentranh\app\bean\Chapter.class
 vn\holotruyentranh\app\bean\Catergory.class
 vn\holotruyentranh\app\repository\ComicTransRepository.class
@@ -48,6 +47,7 @@ vn\holotruyentranh\app\service\ImageChapterService.class
 vn\holotruyentranh\app\controller\UserController.class
 vn\holotruyentranh\app\admincontroller\AdminController.class
 vn\holotruyentranh\app\admincontroller\AdminUserController.class
+vn\holotruyentranh\app\admincontroller\AdminComicCatergoryController.class
 vn\holotruyentranh\app\controller\ComicController.class
 vn\holotruyentranh\app\admincontroller\AdminChapterController.class
 vn\holotruyentranh\app\service\PermissionService.class

@@ -43,13 +43,25 @@
 						 <td>
 			                      <form action="#" method="Post">
 			                        <a href="../admin/imagechapter_edit?id=${ item.idImageChapter }" class="fas fa-wrench">Sửa</a>		                      
-			                        <a href="../admin/delete/${item.idImageChapter}" class="fas fa-trash">Xoá</a>
+			                        <a href="../admin/deleteimage/${item.idImageChapter}" class="fas fa-trash">Xoá</a>
 			                      </form>                    
                    			</td>
 					</tr>
 				</c:forEach>
 				</tbody>	
 				</table>
+				
+				<div>
+    	<ul class="pagination" style="flex-wrap:wrap;">
+    	<c:forEach begin="1" end="${ totalPages }" var="i">
+    		<li class="page-item">
+    		<a class="page-link" href="../admin/imagechapter_${ i }">${ i }</a>
+    		</li>
+    	</c:forEach>
+    	</ul>
+    </div>
+    
+				
 				</div>
               <!-- /.card-body -->
             </div>

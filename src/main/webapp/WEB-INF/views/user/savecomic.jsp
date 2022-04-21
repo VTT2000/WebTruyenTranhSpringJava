@@ -6,7 +6,7 @@
     <div class="section section-item ">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-xs-4">
+                <div class="col-md-2 col-xs-4">
                     <nav class="nav-sidebar">
                         <ul class="nav">
                             <li><a href="../User/Info">Thông tin</a></li>
@@ -19,11 +19,10 @@
             <!--user content-->
             <!--  ông sửa lại tên nhé -->
                 <div class="col-md-7 col-xs-6">
-                    <div class="user-content">
+                    <div class="box user-content">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Mã truyện</th>
                                     <th>Tên truyện</th>
                                     <th>Trạng thái</th>
                                     <th>Mô tả</th>
@@ -34,7 +33,6 @@
                                 <c:if test="${ not empty comics }">
 								<c:forEach var="item" items="${ comics }">
 								<tr>
-                                    <td>${ item.IDcomic }</td>
                                     <td>
                                     <a href="../Comic/Index?IDcomic=${ item.IDcomic }">
                                     	${ item.comic }

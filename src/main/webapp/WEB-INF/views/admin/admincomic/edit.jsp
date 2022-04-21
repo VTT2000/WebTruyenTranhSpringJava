@@ -20,7 +20,7 @@
                   <div class="col-md-6">
                     <div class="card card-primary">
                       <div class="card-header">     
-                          <h3 class="card-title">Thêm truyện</h3>     
+                          <h3 class="card-title">Sửa truyện</h3>     
                       </div>
                       <!-- /.card-header -->
                           <form method="POST" action="../admin/comic_edit" >
@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="form-group">
                                   <label for="1">Mô tả</label>
-                                  <textarea id="1" type="text" class="form-control" name="description" placeholder="Mô tả">${temp.description }</textarea>
+                                  <textarea id="1" class="form-control" name="description" placeholder="Mô tả">${temp.description }</textarea>
                                 </div>
                                 <div class="form-group">
                                   <label for="2">IDauthor</label>
@@ -61,10 +61,4 @@
             </section>
             
        </div>
-      </div><!-- /.container-fluid -->
-    </section>
-     <!-- Main content -->
-     
-      <!-- /.content -->
-    </div>
     <!-- /.content-wrapper -->

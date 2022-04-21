@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,15 +17,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import vn.holotruyentranh.app.bean.Comic;
 import vn.holotruyentranh.app.bean.User;
 import vn.holotruyentranh.app.service.UserService;
 @Controller
-@RequestMapping("/admin/")
+@RequestMapping("/admin")
 public class AdminUserController {
 	@Autowired
 	private UserService UserDao;
-	@RequestMapping("user")
+	@RequestMapping("/user")
 	public String index(Model model, HttpSession session, HttpServletRequest request){
+		return listByPage(model, 1, session, request);
+	}
+	@RequestMapping("/user_{pageNum}")
+	public String listByPage(Model model, @PathVariable(name = "pageNum") int currentPage, HttpSession session, HttpServletRequest request){
 		Cookie[] cookies = null;
         cookies = request.getCookies();
 		if(cookies.length != 0) {
@@ -44,18 +50,25 @@ public class AdminUserController {
 				session.getAttribute("AdminIdKH") == null) {
 			return "redirect:/admin/login";
 		}
-		List<User> listUsers = UserDao.listAll();
-		model.addAttribute("listUsers", listUsers);
+		Page<User> page = UserDao.listAll(currentPage);
+		long totalItems = page.getTotalElements();
+		int totalPages = page.getTotalPages();
+		List<User> list = page.getContent();
+		
+		model.addAttribute("totalItems", totalItems);
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("listUsers", list);
 		return "admin/adminuser/user";
 	}
 
-	@RequestMapping(value = "user_insert", method = RequestMethod.GET)
+	@RequestMapping(value = "/user_insert", method = RequestMethod.GET)
 	public String insert(Model model){	
 		model.addAttribute("error","");
 		return "admin/adminuser/insert";
 	}
 	
-	@RequestMapping(value = "user_insert", method = RequestMethod.POST)
+	@RequestMapping(value = "/user_insert", method = RequestMethod.POST)
 	public String insert0(@ModelAttribute User user0, Model model, HttpServletRequest request){
 		List<User> list0 = UserDao.listAll();
 		User a = null;
@@ -76,7 +89,7 @@ public class AdminUserController {
 		return "admin/adminuser/insert";
 	}
 	
-	@RequestMapping(value = "user_edit", method = RequestMethod.GET)
+	@RequestMapping(value = "/user_edit", method = RequestMethod.GET)
 	public String edit(Model model, HttpServletRequest request){
 		Long idLong = Long.parseLong(request.getParameter("id"));
 		User aUser = UserDao.get(idLong);
@@ -85,7 +98,7 @@ public class AdminUserController {
 		return "admin/adminuser/edit";
 	}
 	
-	@RequestMapping(value = "user_edit", method = RequestMethod.POST)
+	@RequestMapping(value = "/user_edit", method = RequestMethod.POST)
 	public String edit0(@ModelAttribute User user0, Model model, HttpServletRequest request){
 		List<User> list0 = UserDao.listAll();
 		User a = null;
@@ -107,8 +120,8 @@ public class AdminUserController {
 		return "admin/adminuser/edit";
 	}
 	
-	@RequestMapping("delete/{IDuser}")
-	public String delete(@PathVariable(name = "IDuser") Long IDuser) {
+	@RequestMapping("/deleteuser/{IDuser}")
+	public String deleteuser(@PathVariable(name = "IDuser") Long IDuser) {
 		UserDao.delete(IDuser);
 		return "redirect:/admin/user";
 	}

@@ -6,6 +6,9 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import vn.holotruyentranh.app.bean.Catergory;
@@ -16,6 +19,12 @@ import vn.holotruyentranh.app.repository.CatergoryRepository;
 public class CatergoryService {
 	@Autowired
 	CatergoryRepository repo;
+	
+	public Page<Catergory> listAll(int pageNumber){
+		Pageable pageable = PageRequest.of(pageNumber-1, 10); 
+		return repo.findAll(pageable);
+	}
+	
 	public List<Catergory> listAll(){
 		return (List<Catergory>) repo.findAll();
 	}

@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Quản lý ảnh chapter</h1>
+            <h1>Quản lý truyện-thể loại</h1>
           </div>
       
         </div>
@@ -50,6 +50,17 @@
 				</c:forEach>
 				</tbody>	
 				</table>
+				
+				<div>
+    	<ul class="pagination">
+    	<c:forEach begin="1" end="${ totalPages }" var="i">
+    		<li class="page-item">
+    		<a class="page-link" href="../admin/comiccatergory_${ i }">${ i }</a>
+    		</li>	
+    	</c:forEach>
+    	</ul>
+    </div>
+    
 				</div>
               <!-- /.card-body -->
             </div>

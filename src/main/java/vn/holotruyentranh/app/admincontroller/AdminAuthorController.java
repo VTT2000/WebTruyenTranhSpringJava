@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,12 +21,17 @@ import vn.holotruyentranh.app.bean.Author;
 import vn.holotruyentranh.app.service.AuthorService;
 
 @Controller
-@RequestMapping("/admin/")
+@RequestMapping("/admin")
 public class AdminAuthorController {
 	@Autowired
 	private AuthorService authorDao;
-	@RequestMapping("author")
+	@RequestMapping("/author")
 	public String index(Model model, HttpSession session, HttpServletRequest request){
+		return listByPage(model, 1, session, request);
+	}
+	
+	@RequestMapping("/author_{pageNum}")
+	public String listByPage(Model model, @PathVariable(name = "pageNum") int currentPage, HttpSession session, HttpServletRequest request) {
 		Cookie[] cookies = null;
         cookies = request.getCookies();
 		if(cookies.length != 0) {
@@ -45,17 +51,31 @@ public class AdminAuthorController {
 				session.getAttribute("AdminIdKH") == null) {
 			return "redirect:/admin/login";
 		}
-		List<Author> listAuthors = authorDao.listAll();
-		model.addAttribute("listAuthors", listAuthors);
+		
+		Page<Author> page = authorDao.listAll(currentPage);
+		long totalItems = page.getTotalElements();
+		int totalPages = page.getTotalPages();
+		List<Author> list = page.getContent();
+		
+		model.addAttribute("listAuthors", list);
+		model.addAttribute("totalItems", totalItems);
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("currentPage", currentPage);
+		
+		
 		return "admin/adminauthor/author";
 	}
-	@RequestMapping(value = "author_insert", method = RequestMethod.GET)
+	
+	
+	
+	
+	@RequestMapping(value = "/author_insert", method = RequestMethod.GET)
 	public String insert(Model model){	
 		model.addAttribute("error","");
 		return "admin/adminauthor/insert";
 	}
 	
-	@RequestMapping(value = "author_insert", method = RequestMethod.POST)
+	@RequestMapping(value = "/author_insert", method = RequestMethod.POST)
 	public String insert0(@ModelAttribute Author author0, Model model, HttpServletRequest request){
 		List<Author> list0 = authorDao.listAll();
 		Author a = null;
@@ -76,7 +96,7 @@ public class AdminAuthorController {
 		return "admin/adminauthor/insert";
 	}
 	
-	@RequestMapping(value = "author_edit", method = RequestMethod.GET)
+	@RequestMapping(value = "/author_edit", method = RequestMethod.GET)
 	public String edit(Model model, HttpServletRequest request){	
 		Long idLong = Long.parseLong(request.getParameter("id"));
 		Author aAuthor = authorDao.get(idLong);
@@ -85,7 +105,7 @@ public class AdminAuthorController {
 		return "admin/adminauthor/edit";
 	}
 	
-	@RequestMapping(value = "author_edit", method = RequestMethod.POST)
+	@RequestMapping(value = "/author_edit", method = RequestMethod.POST)
 	public String edit0(@ModelAttribute Author author0, Model model, HttpServletRequest request){
 		List<Author> list0 = authorDao.listAll();
 		Author a = null;
@@ -107,7 +127,7 @@ public class AdminAuthorController {
 		return "admin/adminauthor/edit";
 	}
 	
-	@RequestMapping("deleteauthor/{IDauthor}")
+	@RequestMapping("/deleteauthor/{IDauthor}")
 	public String deleteauthor(@PathVariable(name = "IDauthor") Long IDauthor) {
 		authorDao.delete(IDauthor);
 		return "redirect:/admin/author";

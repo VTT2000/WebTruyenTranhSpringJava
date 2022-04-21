@@ -16,7 +16,7 @@
 							</div>
 							<div class="col-md-9  col-xs-12">
 								<div class="comic ">
-									<h2 class="title">${ comic.getComic() }</h2>
+									<h2 class="title" style="text-align:left;">${ comic.getComic() }</h2>
 									<div class="comic-info">
 										<div class="row">
 											<label style="margin-left: 10px;">Tác giả:</label> <a
@@ -26,7 +26,7 @@
 											<label style="margin-left: 10px;">Thể loại:</label> <span>
 												<c:if test="${ not empty catergorys }">
 													<c:forEach var="item" items="${ catergorys }">
-														<a href="${ item.getIDcatergory() }">${ item.getCatergory() },</a>
+														<a href="../Comic/AllComic?IDcatergory=${ item.getIDcatergory() }">${ item.getCatergory() },</a>
 													</c:forEach>
 												</c:if>
 
@@ -45,7 +45,7 @@
 												<button
 													onclick="alert('Đăng nhập để lưu truyện');"
 													type="submit" class="btn btn-primary"
-													style="background-color: red; color: black;">Lưu</button>
+													style="background-color: red; color: black;">Theo dõi</button>
 											</c:otherwise>
 										</c:choose>
 

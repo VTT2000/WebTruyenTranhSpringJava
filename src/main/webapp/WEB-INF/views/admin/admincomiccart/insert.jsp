@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Quản lý ảnh chapter</h1>
+            <h1>Quản lý truyện-thể loại</h1>
           </div>
       
         </div>
@@ -52,10 +52,4 @@
             </section>
             
        </div>
-      </div><!-- /.container-fluid -->
-    </section>
-     <!-- Main content -->
-     
-      <!-- /.content -->
-    </div>
     <!-- /.content-wrapper -->

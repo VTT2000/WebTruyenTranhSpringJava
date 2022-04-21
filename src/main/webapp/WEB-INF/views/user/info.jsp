@@ -8,7 +8,7 @@
 	<div class="section section-item ">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4 col-xs-4">
+				<div class="col-md-2 col-xs-4">
 					<nav class="nav-sidebar">
 						<ul class="nav">
 							<li class="active"><a href="../User/Info">Thông tin</a></li>
@@ -25,7 +25,7 @@
 </style>
 				<!--user content-->
 				<div class="col-md-7 col-xs-6">
-					<div class="user-content">
+					<div class="box user-content">
 						<form:form modelAttribute="user" action="../User/Update"
 							class="form-horizontal" method="POST">
 							<div class="form-group">

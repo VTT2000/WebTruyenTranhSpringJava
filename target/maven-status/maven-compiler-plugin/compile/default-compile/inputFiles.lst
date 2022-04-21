@@ -1,4 +1,3 @@
-C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\admincontroller\OldAdminController.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\bean\ComicTrans.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\bean\ComicCatergory.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\config\WebMvcConfig.java
@@ -24,6 +23,7 @@ C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\bean\Permission.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\bean\TransPermission.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\repository\AuthorRepository.java
+C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\admincontroller\AdminComicCatergoryController.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\repository\ComicTransRepository.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\config\WebAppInitializer.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\service\PermissionService.java
@@ -37,10 +37,10 @@ C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\object\DangKy.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\repository\ComicRepository.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\repository\TheoDoiRepository.java
-C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\admincontroller\AdminImageChapterDao.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\object\DangNhap.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\admincontroller\AdminUserController.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\repository\ChapterRepository.java
+C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\admincontroller\AdminImageChapterController.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\controller\DangKyController.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\bean\Author.java
 C:\Users\DELL\eclipse-workspace\WebTruyenTranh\src\main\java\vn\holotruyentranh\app\bean\ImageChapter.java

@@ -43,13 +43,24 @@
 							<td>
 						   		<form action="#" method="Post">
 						       		<a href="../admin/category_edit?id=${ item.IDcatergory }" class="fas fa-wrench">Sửa</a>		                      
-						        	<a href="../admin/delete/${item.IDcatergory}" class="fas fa-trash">Xoá</a>
+						        	<a href="../admin/deletecatergory/${item.IDcatergory}" class="fas fa-trash">Xoá</a>
 						     	</form>                    
 			             	</td>
 						</tr>
 					</c:forEach>
 					</tbody>	
 				</table>
+				
+				<div>
+ 		 <ul class="pagination">
+    	<c:forEach begin="1" end="${ totalPages }" var="i">
+    	<li class="page-item">
+    		<a class="page-link" href="../admin/category_${ i }">${ i }</a>
+    		</li>
+    	</c:forEach>
+    	</ul>
+    </div>
+				
 				</div>
               <!-- /.card-body -->
             </div>

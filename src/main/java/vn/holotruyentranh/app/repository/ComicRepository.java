@@ -1,9 +1,9 @@
 package vn.holotruyentranh.app.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import vn.holotruyentranh.app.bean.Comic;
 
-public interface ComicRepository extends CrudRepository<Comic, Long> {
+public interface ComicRepository extends JpaRepository<Comic, Long> {
 
 }

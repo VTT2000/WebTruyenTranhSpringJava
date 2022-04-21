@@ -20,7 +20,7 @@
                   <div class="col-md-6">
                     <div class="card card-primary">
                       <div class="card-header">     
-                          <h3 class="card-title">Thêm truyện</h3>     
+                          <h3 class="card-title">Thêm tài khoản</h3>     
                       </div>
                       <!-- /.card-header -->
                           <form method="POST" action="../admin/user_insert">      
@@ -56,10 +56,5 @@
             </section>
             
        </div>
-      </div><!-- /.container-fluid -->
-    </section>
-     <!-- Main content -->
-     
-      <!-- /.content -->
-    </div>
+   
     <!-- /.content-wrapper -->

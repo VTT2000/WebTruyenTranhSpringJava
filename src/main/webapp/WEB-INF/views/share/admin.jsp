@@ -175,7 +175,6 @@
 <script src="../assets/js/adminjs/buttons.print.min.js"></script>
 <script src="../assets/js/adminjs/buttons.colVis.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../assets/js/adminjs/demo.js"></script>
 <!-- Page specific script -->
 <script>
     $(function () {    

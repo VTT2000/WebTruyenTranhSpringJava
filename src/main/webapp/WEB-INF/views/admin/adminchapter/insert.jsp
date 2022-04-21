@@ -52,10 +52,4 @@
             </section>
             
        </div>
-      </div><!-- /.container-fluid -->
-    </section>
-     <!-- Main content -->
-     
-      <!-- /.content -->
-    </div>
     <!-- /.content-wrapper -->
